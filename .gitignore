@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.vite-cache/
+.env.local
+.env.*.local
+.vscode/
+
+*.zip
+*.log
