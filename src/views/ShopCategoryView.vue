@@ -55,6 +55,6 @@ onMounted(loadItems)
       </div>
       <van-empty v-if="!loading && !items.length" description="暂无相关内容" />
     </section>
-    <nav class="shop-tabbar"><button type="button" @click="router.push('/home')"><van-icon name="wap-home-o" /><span>首页</span></button><button class="active" type="button"><van-icon name="apps-o" /><span>分类</span></button><button type="button" @click="router.push('/shop/orders')"><van-icon name="orders-o" /><span>订单</span></button><button type="button" @click="router.push('/profile')"><van-icon name="contact-o" /><span>我的</span></button></nav>
+    <nav class="shop-tabbar"><button type="button" @click="router.push('/home')"><van-icon name="wap-home-o" /><span>首页</span></button><button type="button" @click="router.push('/shop/manage')"><van-icon name="shop-o" /><span>上架</span></button><button type="button" @click="router.push('/shop/orders')"><van-icon name="orders-o" /><span>订单</span></button><button type="button" @click="router.push('/profile')"><van-icon name="contact-o" /><span>我的</span></button></nav>
   </main>
 </template>

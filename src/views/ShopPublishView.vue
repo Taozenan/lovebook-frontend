@@ -1,4 +1,4 @@
-﻿<script setup>
+<script setup>
 import { onMounted, reactive, ref } from 'vue'
 import { showToast } from 'vant'
 import { useRoute, useRouter } from 'vue-router'
@@ -9,7 +9,7 @@ const router = useRouter()
 const authStore = useAuthStore()
 const submitting = ref(false)
 const editingId = ref(route.query.id || '')
-const form = reactive({ itemType: Number(route.query.type) || 1, title: '', subtitle: '', description: '', price: '', stock: 0, coverUrl: '', serviceDurationMin: '', serviceRule: '', imageUrls: [], status: 0 })
+const form = reactive({ itemType: Number(route.query.type) || 1, title: '', subtitle: '', description: '', price: '', stock: 1, coverUrl: '', serviceDurationMin: '', serviceRule: '', imageUrls: [], status: 0 })
 const typeTabs = [{ text: '餐品', value: 1 }, { text: '专属服务', value: 2 }, { text: '商品', value: 3 }]
 
 async function loadItem() {
@@ -65,8 +65,17 @@ onMounted(loadItem)
       <van-tabs v-model:active="form.itemType" class="publish-tabs">
         <van-tab v-for="tab in typeTabs" :key="tab.value" :title="tab.text" :name="tab.value" />
       </van-tabs>
-      <div class="publish-upload"><van-uploader :after-read="uploadCover" :max-count="1" accept="image/*"><van-icon name="photograph" /><span>添加{{ typeTabs.find((tab) => tab.value === form.itemType)?.text || '商品' }}精美照片</span><small>图片可暂不上传，最大5MB</small></van-uploader><img v-if="form.coverUrl" class="publish-preview" :src="form.coverUrl" alt="已上传图片" /></div>
-      <van-field v-model="form.coverUrl" label="图片地址" placeholder="可选，不填写也可以发布" />
+      <div class="publish-upload">
+        <van-uploader v-if="!form.coverUrl" :after-read="uploadCover" :max-count="1" accept="image/*">
+          <van-icon name="photograph" />
+          <span>添加{{ typeTabs.find((tab) => tab.value === form.itemType)?.text || "商品" }}图片</span>
+          
+        </van-uploader>
+        <div v-else class="publish-preview-wrap">
+          <img class="publish-preview" :src="form.coverUrl" alt="已上传图片" />
+          <button type="button" class="publish-preview-remove" aria-label="删除图片" @click="form.coverUrl = ''">×</button>
+        </div>
+      </div>
       <van-field v-model="form.title" label="名称" placeholder="请输入名称" />
       <van-field v-model="form.description" label="说明" type="textarea" rows="3" maxlength="500" placeholder="输入甜蜜的制作心得，比如：深夜为你烤制的暖心小甜点……" />
       <div class="publish-row"><van-field v-model="form.price" label="价格" type="number" placeholder="0" /><van-field v-model="form.stock" label="每日库存" type="number" placeholder="0" /></div>

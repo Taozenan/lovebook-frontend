@@ -67,9 +67,8 @@ onMounted(() => { loadBindingNotice(); loadBalance() })
       <van-cell title="账号" :value="authStore.username" />
       <van-cell title="绑定对象" is-link @click="openBinding"><template #value><span class="binding-entry"><span class="binding-entry-value">{{ invitationCount ? '收到绑定邀请' : '管理绑定关系' }}</span><span v-if="invitationCount" class="binding-invite-badge">{{ invitationCount > 99 ? '99+' : invitationCount }}</span></span></template></van-cell>
       <van-cell title="余额" :value="`¥ ${balance.toFixed(2)}`" is-link />
-      <van-cell title="上架管理" is-link @click="router.push('/shop/manage')" />
     </van-cell-group>
     <div class="logout-action"><van-button block round plain @click="logout">退出登录</van-button></div>
-    <nav class="shop-tabbar"><button type="button" @click="router.push('/home')"><van-icon name="wap-home-o" /><span>首页</span></button><button type="button" @click="router.push('/shop/category')"><van-icon name="apps-o" /><span>分类</span></button><button type="button" @click="router.push('/shop/orders')"><van-icon name="orders-o" /><span>订单</span></button><button class="active" type="button"><van-icon name="contact-o" /><span>我的</span></button></nav>
+    <nav class="shop-tabbar"><button type="button" @click="router.push('/home')"><van-icon name="wap-home-o" /><span>首页</span></button><button type="button" @click="router.push('/shop/manage')"><van-icon name="shop-o" /><span>上架</span></button><button type="button" @click="router.push('/shop/orders')"><van-icon name="orders-o" /><span>订单</span></button><button class="active" type="button"><van-icon name="contact-o" /><span>我的</span></button></nav>
   </main>
 </template>

@@ -51,6 +51,6 @@ onMounted(loadHome)
         <van-empty v-if="!shop.recommendedFoods.length && !shop.hotServices.length" description="暂时还没有上架内容" />
       </section>
     </van-pull-refresh>
-    <nav class="shop-tabbar"><button class="active" type="button"><van-icon name="wap-home-o" /><span>首页</span></button><button type="button" @click="router.push('/shop/category')"><van-icon name="apps-o" /><span>分类</span></button><button type="button" @click="router.push('/shop/orders')"><van-icon name="orders-o" /><span>订单</span></button><button type="button" @click="openProfile"><van-icon name="contact-o" /><span>我的</span></button></nav>
+    <nav class="shop-tabbar"><button class="active" type="button"><van-icon name="wap-home-o" /><span>首页</span></button><button type="button" @click="router.push('/shop/manage')"><van-icon name="shop-o" /><span>上架</span></button><button type="button" @click="router.push('/shop/orders')"><van-icon name="orders-o" /><span>订单</span></button><button type="button" @click="openProfile"><van-icon name="contact-o" /><span>我的</span></button></nav>
   </main>
 </template>

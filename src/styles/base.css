@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #333;
   background: #fff1f6;
@@ -158,7 +158,7 @@ button { font: inherit; }
 .category-item-info strong { color: #ff55a8; font-size: 14px; }
 @media (min-width: 600px) { .shop-category-page { max-width: 430px; margin: 0 auto; box-shadow: 0 0 18px rgb(0 0 0 / 8%); } .shop-category-page .shop-tabbar { max-width: 430px; margin: 0 auto; } }
 .publish-tabs { margin-bottom: 14px; background: #fff0f5; }
-.publish-upload { display: grid; place-items: center; gap: 6px; min-height: 116px; margin: 0 12px 12px; border: 1px dashed #ff62aa; border-radius: 12px; color: #ff62aa; background: #fffafd; }
+.publish-upload { display: grid; place-items: center; width: calc(100% - 24px); aspect-ratio: 4 / 3; margin: 0 12px 12px; border: 1px dashed #ff62aa; border-radius: 12px; color: #ff62aa; background: #fffafd; overflow: hidden; }
 .publish-upload .van-icon { font-size: 27px; }
 .publish-upload span { font-size: 12px; }
 .publish-upload small { color: #b49ca6; font-size: 10px; }
@@ -253,7 +253,9 @@ button { font: inherit; }
 
 
 .publish-upload .van-uploader { display: grid; place-items: center; gap: 4px; color: #ff62aa; cursor: pointer; }
-.publish-preview { display: block; width: 84px; height: 84px; margin: 10px auto 0; border-radius: 10px; object-fit: cover; }
+.publish-preview-wrap { position: relative; display: grid; place-items: center; width: 100%; height: 100%; }
+.publish-preview { display: block; width: 72%; aspect-ratio: 4 / 3; border-radius: 10px; object-fit: cover; }
+.publish-preview-remove { position: absolute; top: 8px; right: 8px; display: grid; place-items: center; width: 24px; height: 24px; border: 0; border-radius: 50%; color: #fff; background: rgb(0 0 0 / 58%); font-size: 20px; line-height: 1; cursor: pointer; }
 
 
 .lover-profile-card .van-uploader { flex: 0 0 44px; }
